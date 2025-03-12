@@ -27,45 +27,45 @@ export default function ContributionStats({ data, username }: ContributionStatsP
     const stats = calculateStats(data);
 
     return (
-        <Card className="bg-zinc-900 mt-6  border border-zinc-800 rounded-xl shadow-md">
+        <Card className="bg-zinc-900/80 mt-6 border border-zinc-800/70 rounded-xl shadow-xl">
             <CardHeader>
-                <CardTitle className="text-white text-xl font-bold tracking-wide">
+                <CardTitle className="text-zinc-100 text-xl font-bold tracking-wide">
                     Contribution Statistics for {username}
                 </CardTitle>
             </CardHeader>
 
             <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Contribution Stats */}
-                <Card className="bg-zinc-800 p-4 rounded-lg border border-zinc-700 shadow-sm">
-                    <CardHeader>
-                        <CardTitle className="text-white text-lg font-semibold">Contribution Stats</CardTitle>
+                <Card className="bg-zinc-800/50 rounded-lg border border-zinc-700/60 shadow-md hover:border-blue-800/60 transition-all duration-200">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-zinc-200 text-lg font-semibold">Contribution Stats</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-zinc-300 space-y-2">
-                        <p>Total: <span className="font-bold text-white">{stats.total}</span> contributions</p>
-                        <p>Daily Average: <span className="font-bold text-white">{stats.averagePerDay}</span></p>
-                        <p>Weekly Average: <span className="font-bold text-white">{stats.averagePerWeek}</span></p>
+                    <CardContent className="text-zinc-400 space-y-2">
+                        <p>Total: <span className="font-bold text-blue-400">{stats.total}</span> contributions</p>
+                        <p>Daily Average: <span className="font-bold text-blue-400">{stats.averagePerDay}</span></p>
+                        <p>Weekly Average: <span className="font-bold text-blue-400">{stats.averagePerWeek}</span></p>
                     </CardContent>
                 </Card>
 
                 {/* Streaks */}
-                <Card className="bg-zinc-800 p-4 rounded-lg border border-zinc-700 shadow-sm">
-                    <CardHeader>
-                        <CardTitle className="text-white text-lg font-semibold">Streaks</CardTitle>
+                <Card className="bg-zinc-800/50 rounded-lg border border-zinc-700/60 shadow-md hover:border-indigo-800/60 transition-all duration-200">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-zinc-200 text-lg font-semibold">Streaks</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-zinc-300 space-y-2">
-                        <p>Current: <span className="font-bold text-white">{stats.currentStreak}</span> days</p>
-                        <p>Longest: <span className="font-bold text-white">{stats.longestStreak}</span> days</p>
+                    <CardContent className="text-zinc-400 space-y-2">
+                        <p>Current: <span className="font-bold text-indigo-400">{stats.currentStreak}</span> days</p>
+                        <p>Longest: <span className="font-bold text-indigo-400">{stats.longestStreak}</span> days</p>
                     </CardContent>
                 </Card>
 
                 {/* Patterns */}
-                <Card className="bg-zinc-800 p-4 rounded-lg border border-zinc-700 shadow-sm">
-                    <CardHeader>
-                        <CardTitle className="text-white text-lg font-semibold">Patterns</CardTitle>
+                <Card className="bg-zinc-800/50 rounded-lg border border-zinc-700/60 shadow-md hover:border-purple-800/60 transition-all duration-200">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-zinc-200 text-lg font-semibold">Patterns</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-zinc-300 space-y-2">
-                        <p>Most Active Day: <span className="font-bold text-white">{stats.mostProductiveDay}</span></p>
-                        <p>Most Active Month: <span className="font-bold text-white">{stats.mostProductiveMonth}</span></p>
+                    <CardContent className="text-zinc-400 space-y-2">
+                        <p>Most Active Day: <span className="font-bold text-purple-400">{stats.mostProductiveDay}</span></p>
+                        <p>Most Active Month: <span className="font-bold text-purple-400">{stats.mostProductiveMonth}</span></p>
                     </CardContent>
                 </Card>
             </CardContent>
