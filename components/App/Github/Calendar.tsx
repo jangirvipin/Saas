@@ -6,8 +6,8 @@ export default async function GitHubCalendar({ username }: { username: string })
     // Function to determine color based on contribution count
     const getColorClass = (count: number) => {
         if (count === 0) return "bg-zinc-800 border border-zinc-700";
-        if (count <= 3) return "bg-white/40";
-        if (count <= 6) return "bg-white/60";
+        if (count <= 3) return "bg-white/60";
+        if (count <= 6) return "bg-white/70";
         if (count <= 9) return "bg-white/80";
         return "bg-white";
     };
@@ -88,8 +88,8 @@ export default async function GitHubCalendar({ username }: { username: string })
             <div className="flex items-center justify-end mt-10  text-xs text-zinc-400">
                 <span>Less</span>
                 <div className="w-3 h-3 rounded-sm bg-zinc-800 border border-zinc-700 mx-1"></div>
-                <div className="w-3 h-3 rounded-sm bg-white/40 mx-1"></div>
                 <div className="w-3 h-3 rounded-sm bg-white/60 mx-1"></div>
+                <div className="w-3 h-3 rounded-sm bg-white/70 mx-1"></div>
                 <div className="w-3 h-3 rounded-sm bg-white/80 mx-1"></div>
                 <div className="w-3 h-3 rounded-sm bg-white mx-1"></div>
                 <span>More</span>

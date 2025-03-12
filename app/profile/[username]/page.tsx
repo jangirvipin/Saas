@@ -1,5 +1,5 @@
 import Profile from "@/components/App/Profile/Profile";
-import GitHubStats from "@/components/App/Github/Commits";
+
 
 const page =({params}:{params:{username:string}})=>{
 

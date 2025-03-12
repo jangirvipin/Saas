@@ -1,10 +1,25 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import Link from "next/link";
 import { GitHubLogoIcon, CodeIcon } from "@radix-ui/react-icons";
 
 export default function HeroSection() {
+    const [username, setUsername] = useState("");
+    const router = useRouter();
+
+    const handleSubmit = () => {
+        if (username.trim()) {
+            router.push(`/profile/${username}`);
+        }
+    };
+
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-900 text-white relative">
+        <div className="py-32 pt-40 flex flex-col items-center justify-center bg-zinc-900 text-white relative">
             <div className="text-center max-w-4xl px-4 space-y-8 relative z-10">
                 <div className="space-y-4">
                     {/* Gradient Heading */}
@@ -19,17 +34,46 @@ export default function HeroSection() {
                 </div>
 
                 <div className="flex justify-center gap-4">
-                    <Link href="/github">
-                        <Button
-                            size="lg"
-                            variant="default"
-                            className="bg-zinc-800 text-white hover:bg-zinc-700 border border-zinc-700"
-                        >
-                            <GitHubLogoIcon className="mr-2 h-5 w-5" />
-                            GitHub Profile
-                        </Button>
-                    </Link>
+                    {/* GitHub Profile Dialog */}
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button
+                                size="lg"
+                                variant="default"
+                                className="bg-zinc-800 text-white hover:bg-zinc-700 border border-zinc-700"
+                            >
+                                <GitHubLogoIcon className="mr-2 h-5 w-5" />
+                                GitHub Profile
+                            </Button>
+                        </DialogTrigger>
 
+                        <DialogContent className="bg-zinc-900 border border-zinc-700">
+                            <DialogHeader>
+                                <DialogTitle className="text-white">Enter Your GitHub Username</DialogTitle>
+                            </DialogHeader>
+
+                            <Input
+                                type="text"
+                                placeholder="your-github-username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                className="bg-zinc-800 text-white border border-zinc-700"
+                            />
+
+                            <DialogFooter>
+                                <Button
+                                    size="lg"
+                                    variant="default"
+                                    className="bg-zinc-800 text-white hover:bg-zinc-700 border border-zinc-700"
+                                    onClick={handleSubmit}
+                                >
+                                    Go to Profile
+                                </Button>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
+
+                    {/* Open Source Works */}
                     <Link href="/contributions">
                         <Button
                             size="lg"
@@ -42,8 +86,6 @@ export default function HeroSection() {
                     </Link>
                 </div>
             </div>
-
-
         </div>
     );
 }
