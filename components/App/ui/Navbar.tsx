@@ -7,6 +7,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navbar() {
     const { data: session } = useSession();
+    console.log(session);
 
     return (
         <nav className="fixed top-0 left-0 w-full z-50">

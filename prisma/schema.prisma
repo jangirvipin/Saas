@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  username      String         @unique
+  githubId      String         @unique
+  createdAt     DateTime       @default(now())
+  contributions Contribution[]
+}
+
+model Contribution {
+  id                 String            @id @default(cuid())
+  user               User              @relation(fields: [userId], references: [id])
+  userId             String
+  title              String
+  about              String
+  repoUrl            String
+  prUrl              String
+  company            String?
+  difficulty         Difficulty
+  status             Status            @default(PENDING)
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  ContributionType   ContributionType? @relation(fields: [contributionTypeId], references: [id])
+  contributionTypeId String?
+  Skill              Skill?            @relation(fields: [skillId], references: [id])
+  skillId            String?
+  skills             Skill[]           @relation("ContributionSkills")
+}
+
+model ContributionType {
+  id            String         @id @default(uuid())
+  name          String         @unique
+  contributions Contribution[]
+}
+
+model Skill {
+  id            String         @id @default(uuid())
+  name          String         @unique
+  contributions Contribution[] @relation("ContributionSkills")
+  Contribution  Contribution[]
+}
+
+enum Status {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum Difficulty {
+  EASY
+  MODERATE
+  HARD
+}
