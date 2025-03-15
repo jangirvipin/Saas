@@ -22,36 +22,20 @@ model User {
 }
 
 model Contribution {
-  id                 String            @id @default(cuid())
-  user               User              @relation(fields: [userId], references: [id])
-  userId             String
-  title              String
-  about              String
-  repoUrl            String
-  prUrl              String
-  company            String?
-  difficulty         Difficulty
-  status             Status            @default(PENDING)
-  createdAt          DateTime          @default(now())
-  updatedAt          DateTime          @updatedAt
-  ContributionType   ContributionType? @relation(fields: [contributionTypeId], references: [id])
-  contributionTypeId String?
-  Skill              Skill?            @relation(fields: [skillId], references: [id])
-  skillId            String?
-  skills             Skill[]           @relation("ContributionSkills")
-}
-
-model ContributionType {
-  id            String         @id @default(uuid())
-  name          String         @unique
-  contributions Contribution[]
-}
-
-model Skill {
-  id            String         @id @default(uuid())
-  name          String         @unique
-  contributions Contribution[] @relation("ContributionSkills")
-  Contribution  Contribution[]
+  id               String     @id @default(cuid())
+  user             User       @relation(fields: [userId], references: [id])
+  userId           String
+  title            String
+  about            String
+  repoUrl          String
+  prUrl            String
+  company          String?
+  difficulty       Difficulty
+  status           Status     @default(PENDING)
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  contributionType String
+  skill            String
 }
 
 enum Status {
