@@ -31,6 +31,7 @@ model Contribution {
   prUrl            String
   company          String?
   difficulty       Difficulty
+  description      String     @default("")
   status           Status     @default(PENDING)
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
