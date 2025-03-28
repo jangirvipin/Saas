@@ -21,20 +21,7 @@ import getStatusData from "@/utils/Status";
 import EditContributionButton from "@/components/App/ui/Edit";
 
 const ContributionDetails = ({ contribution }:any) => {
-    // Static description for demonstration
-    const staticDescription = `
-    Contributing to this Rust project was an incredible learning experience. 
-    I dove deep into memory management techniques, identifying and fixing a critical 
-    memory leak that was causing performance bottlenecks. The process involved 
-    careful analysis of memory allocation patterns and implementing more efficient 
-    memory handling strategies.
 
-    Key challenges included:
-    - Tracing complex memory allocation chains
-    - Identifying ownership and borrowing conflicts
-    - Optimizing memory release mechanisms
-
-  `;
 
     const statusData = getStatusData(contribution.status);
 
@@ -69,9 +56,9 @@ const ContributionDetails = ({ contribution }:any) => {
                             <CardTitle className="text-xl text-zinc-100">Contribution Experience</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="bg-zinc-900 p-4 rounded-lg border border-zinc-700">
+                            <div className="bg-zinc-900 p-4 rounded-lg border border-zinc-700 min-h-[360px]">
                                 <p className="text-zinc-300 leading-relaxed whitespace-pre-wrap">
-                                    {staticDescription}
+                                    {contribution.description}
                                 </p>
                             </div>
                         </CardContent>

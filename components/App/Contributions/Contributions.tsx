@@ -50,8 +50,8 @@ export default function ContributionsPage({data}:{data:any}) {
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="PENDING">Pending</SelectItem>
-                        <SelectItem value="MERGED">Merged</SelectItem>
-                        <SelectItem value="CLOSED">Closed</SelectItem>
+                        <SelectItem value="REJECTED">Rejected</SelectItem>
+                        <SelectItem value="APPROVED">Approved</SelectItem>
                     </SelectContent>
                 </Select>
 
