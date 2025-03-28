@@ -38,8 +38,7 @@ export default function Contributions_card({contribution}:{contribution:any}) {
     };
 
     const getSkillIcon = (skill: SkillType) => {
-        const firstLetter = skill.charAt(0).toUpperCase();
-        return firstLetter;
+        return skill.charAt(0).toUpperCase();
     };
 
 
@@ -49,7 +48,7 @@ export default function Contributions_card({contribution}:{contribution:any}) {
     return (
         <Card
             key={contribution.id}
-            className="bg-zinc-800/50 backdrop-blur-sm border-zinc-700/30 text-zinc-100 relative overflow-hidden group hover:border-zinc-600/50 transition-all duration-300 shadow-lg shadow-zinc-950/20"
+            className="bg-zinc-800/50 backdrop-blur-sm border-zinc-700/30 text-zinc-100 relative overflow-hidden group hover:border-zinc-600/50 transition-all duration-300 shadow-lg shadow-zinc-950/20 flex flex-col h-[380px]" // Fixed height
         >
             {/* Gradient accent in corner */}
             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-transparent to-zinc-700/20 rounded-bl-full" />
@@ -75,15 +74,15 @@ export default function Contributions_card({contribution}:{contribution:any}) {
                 </div>
             </CardHeader>
 
-            <CardContent className="pb-2">
-                <h3 className="font-bold text-lg mb-2 text-zinc-100 group-hover:text-white transition-colors duration-200">
+            <CardContent className="pb-2 flex-grow overflow-hidden flex flex-col">
+                <h3 className="font-bold text-lg mb-2 text-zinc-100 group-hover:text-white transition-colors duration-200 line-clamp-2 text-ellipsis">
                     {contribution.title}
                 </h3>
-                <p className="text-zinc-400 text-sm mb-4 line-clamp-2 group-hover:text-zinc-300 transition-colors duration-200">
+                <p className="text-zinc-400 text-sm mb-4 line-clamp-3 overflow-hidden text-ellipsis">
                     {contribution.about}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-auto flex flex-wrap gap-2">
                     <Badge
                         variant={difficultyData.variant}
                         className={difficultyData.className}
@@ -95,9 +94,9 @@ export default function Contributions_card({contribution}:{contribution:any}) {
                         variant="outline"
                         className="border-zinc-700/50 text-zinc-300 bg-zinc-800/80 flex items-center gap-1"
                     >
-                    <span className="w-3 h-3 rounded-full bg-zinc-600 flex items-center justify-center text-[8px] font-bold">
-                      {getSkillIcon(contribution.skill)}
-                    </span>
+                <span className="w-3 h-3 rounded-full bg-zinc-600 flex items-center justify-center text-[8px] font-bold">
+                    {getSkillIcon(contribution.skill)}
+                </span>
                         {contribution.skill}
                     </Badge>
                 </div>

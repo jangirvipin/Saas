@@ -1,12 +1,17 @@
+'use client'
 import React from 'react';
-import { GlobeIcon, TrendingUpIcon, GitForkIcon, SearchIcon, BellIcon } from 'lucide-react';
+import {useRouter} from "next/navigation";
+import {GlobeIcon, TrendingUpIcon, GitForkIcon, SearchIcon, BellIcon, ArrowUpWideNarrow} from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-export default function Dashboard() {
+export default function Dashboard({data}:{data:any}) {
+    const { prApproved, totalContributions, hardIssues, organization } = data;
+    const router:AppRouterInstance = useRouter();
+
     return (
         <div className="w-full">
             {/* Gradient background with mesh effect */}
@@ -67,15 +72,11 @@ export default function Dashboard() {
                             </div>
 
                             <div className="flex flex-col md:flex-row gap-3 md:items-end">
-                                <div className="relative">
-                                    <SearchIcon size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-500" />
-                                    <Input
-                                        placeholder="Search contributions..."
-                                        className="bg-zinc-800/50 border-zinc-700/30 pl-9 pr-4 w-full md:w-64 text-zinc-300 placeholder:text-zinc-500 focus:border-zinc-600"
-                                    />
-                                </div>
-
-                                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                                  <Button onClick={()=>router.push("/contributions")} className="button bg-green-400/80   text-zinc-100">
+                                      <ArrowUpWideNarrow size={16} className="mr-2" />
+                                        See All
+                                    </Button>
+                                <Button onClick={()=>router.push("/contributions/new")} className="bg-blue-600 hover:bg-blue-700 text-white">
                                     <GlobeIcon size={16} className="mr-2" />
                                     Add New
                                 </Button>
@@ -85,10 +86,10 @@ export default function Dashboard() {
                         {/* Stats row */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                             {[
-                                { label: "Total Contributions", value: "38", change: "+12%" },
-                                { label: "Active Projects", value: "7", change: "+2" },
-                                { label: "Accepted PRs", value: "24", change: "86%" },
-                                { label: "Organizations", value: "5", change: "New" }
+                                { label: "Total Contributions", value:  totalContributions },
+                                { label: "Hard Issues", value:hardIssues },
+                                { label: "Accepted PRs", value: prApproved },
+                                { label: "Organizations", value: organization }
                             ].map((stat, i) => (
                                 <div
                                     key={i}
@@ -97,9 +98,7 @@ export default function Dashboard() {
                                     <p className="text-zinc-400 text-sm mb-1">{stat.label}</p>
                                     <div className="flex items-end justify-between">
                                         <span className="text-2xl font-bold text-zinc-100">{stat.value}</span>
-                                        <Badge className="bg-zinc-700/50 text-zinc-300 text-xs">
-                                            {stat.change}
-                                        </Badge>
+
                                     </div>
                                 </div>
                             ))}
