@@ -1,3 +1,4 @@
+import prisma from "@/lib/db";
 
 const seedData=async(username:any)=>{
     prisma?.$connect();

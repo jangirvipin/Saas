@@ -24,7 +24,7 @@ const DeleteContributionButton = ({id}:{id:string}) => {
             if(response.status===200){
                 toast.info("Contribution successfully deleted");
                 setTimeout(()=>{
-                    router.push("/contributions");
+                    router.push("/user/contributions");
                 })
             }
             else{

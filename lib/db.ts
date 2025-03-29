@@ -1,13 +1,12 @@
-// lib/prisma.ts
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
-const globalForPrisma = global as unknown as { prisma?: PrismaClient };
 
-const prisma = globalForPrisma.prisma ?? new PrismaClient({
-    log: ['query'], // Optional: logs queries in development
-});
+const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
-if (process.env.NODE_ENV !== "production") {
+const prisma = globalForPrisma.prisma ?? new PrismaClient();
+
+// Prevent multiple Prisma instances in development mode (Next.js hot reload)
+if (process.env.NODE_ENV !== 'production') {
     globalForPrisma.prisma = prisma;
 }
 
