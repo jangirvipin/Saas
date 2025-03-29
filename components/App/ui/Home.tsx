@@ -11,7 +11,6 @@ import {toast} from "sonner";
 
 export default function HeroSection() {
     const [username, setUsername] = useState("");
-    const [empty,setEmpty] = useState(false);
     const router = useRouter();
 
     const handleSubmit = () => {

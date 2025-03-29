@@ -1,4 +1,4 @@
-// app/api/contributions/[id]/route.ts
+
 import { NextRequest, NextResponse } from 'next/server'
 import EditContribution from "@/db/query/EditContribution";
 import DeleteContribution from "@/db/query/delete";
@@ -40,6 +40,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
         const result = await DeleteContribution(id);
         return NextResponse.json({ message: "Contribution deleted", result }, { status: 200 });
     } catch (error) {
-        return NextResponse.json({ error: "Failed to delete contribution" }, { status: 500 });
+        console.error("Delete Contribution Error:", error);
+        return NextResponse.json({error: "Failed to delete contribution" ,}, { status: 500 });
     }
 }

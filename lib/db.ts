@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 declare global {
     // This prevents TypeScript from throwing errors on the global object
     // due to multiple instances of PrismaClient in development
-    var prisma: PrismaClient | undefined;
+    let prisma: PrismaClient | undefined;
 }
 
 const prisma = global.prisma || new PrismaClient({

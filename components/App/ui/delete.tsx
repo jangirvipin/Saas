@@ -31,6 +31,7 @@ const DeleteContributionButton = ({id}:{id:string}) => {
                 toast.error("Failed to delete contribution");
             }
         } catch (error) {
+            console.log(error);
             toast.error("An error occurred while deleting");
         }finally {
             setOpen(false);
