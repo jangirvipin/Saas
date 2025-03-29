@@ -5,7 +5,7 @@ import DeleteContribution from "@/db/query/delete";
 
 export async function PUT(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: any
 ) {
     try {
         const data = await request.json()
