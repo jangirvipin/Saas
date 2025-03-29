@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import Contributions_card from "@/components/App/Contributions/Contributions_card";
+import NoContribution from "@/components/App/Contributions/NoContribution";
 
 
 export default function ContributionsPage({data}:{data:any}) {
@@ -74,14 +75,17 @@ export default function ContributionsPage({data}:{data:any}) {
                     Dashboard
                 </button>
             </div>
-
-            <div className="grid grid-cols-3 gap-x-4 gap-y-6 mt-8 ">
-            {filteredContributions.map((contribution:any) => (
-                <div key={contribution.id}>
-                    <Contributions_card contribution={contribution} />
-                </div>
-            ))}
+            {filteredContributions.length === 0 || data.length === 0 ? (
+                <div className=""><NoContribution /></div>
+            ):<div className="grid grid-cols-3 gap-x-4 gap-y-6 mt-8 ">
+                {filteredContributions.map((contribution:any) => (
+                    <div key={contribution.id}>
+                        <Contributions_card contribution={contribution} />
+                    </div>
+                ))}
             </div>
+            }
+
 
         </div>
     );
