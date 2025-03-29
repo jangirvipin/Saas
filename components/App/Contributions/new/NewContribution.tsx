@@ -35,6 +35,7 @@ export default function NewContribution(){
             }
         }
         catch (e){
+            console.log(e);
             toast.error("Fill all the details");
         }
     }

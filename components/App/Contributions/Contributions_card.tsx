@@ -13,20 +13,20 @@ type ContributionType = 'ISSUE' | 'PULL_REQUEST' | 'CODE_REVIEW';
 type DifficultyLevel = 'EASY' | 'MEDIUM' | 'HARD';
 type SkillType = 'RUST' | 'JAVASCRIPT' | 'PYTHON' | 'JAVA' | 'GO' | 'TYPESCRIPT' | 'SQL' | string;
 
-interface Contribution {
-    id: string;
-    title: string;
-    about: string;
-    company: string;
-    contributionType: ContributionType;
-    createdAt: string;
-    difficulty: DifficultyLevel;
-    prUrl?: string;
-    repoUrl: string;
-    skill: SkillType;
-    status: ContributionStatus;
-    userId: string;
-}
+// interface Contribution {
+//     id: string;
+//     title: string;
+//     about: string;
+//     company: string;
+//     contributionType: ContributionType;
+//     createdAt: string;
+//     difficulty: DifficultyLevel;
+//     prUrl?: string;
+//     repoUrl: string;
+//     skill: SkillType;
+//     status: ContributionStatus;
+//     userId: string;
+// }
 
 export default function Contributions_card({contribution}:{contribution:any}) {
     const id =contribution.id;

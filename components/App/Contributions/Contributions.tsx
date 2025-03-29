@@ -74,7 +74,7 @@ export default function ContributionsPage({data}:{data:any}) {
 
             <div className="grid grid-cols-3 gap-x-4 gap-y-6 mt-8 ">
             {filteredContributions.map((contribution:any) => (
-                <div>
+                <div key={contribution.id}>
                     <Contributions_card contribution={contribution} />
                 </div>
             ))}

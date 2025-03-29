@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import {useRouter} from "next/navigation";
-import {GlobeIcon, TrendingUpIcon, GitForkIcon, SearchIcon, BellIcon, ArrowUpWideNarrow} from 'lucide-react';
+import {GlobeIcon, TrendingUpIcon, GitForkIcon, BellIcon, ArrowUpWideNarrow} from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";

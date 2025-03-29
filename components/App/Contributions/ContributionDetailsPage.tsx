@@ -15,7 +15,6 @@ import {
     Target,
     ExternalLink,
     Quote,
-    Pencil
 } from "lucide-react";
 import getStatusData from "@/utils/Status";
 import EditContributionButton from "@/components/App/ui/Edit";
