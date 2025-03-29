@@ -13,22 +13,25 @@ export default function ContributionsPage({data}:{data:any}) {
     const [status, setStatus] = useState(searchParams.get("status") || "");
     const [difficulty, setDifficulty] = useState(searchParams.get("difficulty") || "");
 
-    // Function to update query params
-    const updateQueryParams = (key: string, value: string) => {
-        const params = new URLSearchParams(window.location.search);
-        if (value) {
-            params.set(key, value);
-        } else {
-            params.delete(key);
-        }
-        router.push(`?${params.toString()}`, { scroll: false });
-    };
+
 
     // Update query params when filters change
     useEffect(() => {
+        // Function to update query params
+        const updateQueryParams = (key: string, value: string) => {
+            const params = new URLSearchParams(window.location.search);
+            if (value) {
+                params.set(key, value);
+            } else {
+                params.delete(key);
+            }
+            router.push(`?${params.toString()}`, { scroll: false });
+        };
+
         updateQueryParams("status", status);
         updateQueryParams("difficulty", difficulty);
-    }, [ status, difficulty]);
+    }, [status, difficulty, router]);
+
 
     // Filtering logic
     const filteredContributions = data.filter((contribution:any) => {

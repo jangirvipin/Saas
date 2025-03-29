@@ -8,9 +8,9 @@ import React from "react";
 import getDifficultyData from "@/utils/Difficulty";
 import getStatusData from "@/utils/Status";
 
-type ContributionStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
-type ContributionType = 'ISSUE' | 'PULL_REQUEST' | 'CODE_REVIEW';
-type DifficultyLevel = 'EASY' | 'MEDIUM' | 'HARD';
+// type ContributionStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
+// type ContributionType = 'ISSUE' | 'PULL_REQUEST' | 'CODE_REVIEW';
+// type DifficultyLevel = 'EASY' | 'MEDIUM' | 'HARD';
 type SkillType = 'RUST' | 'JAVASCRIPT' | 'PYTHON' | 'JAVA' | 'GO' | 'TYPESCRIPT' | 'SQL' | string;
 
 // interface Contribution {
