@@ -39,6 +39,7 @@ export default async function GitHubStats({ username }: { username: string }) {
             </Card>
         );
     } catch (error) {
+        console.log(error);
         return (
             <Card className="bg-zinc-900 max-w-4xl mx-auto flex flex-col items-center text-white shadow-lg border border-zinc-700 w-full p-6">
                 <CardHeader>

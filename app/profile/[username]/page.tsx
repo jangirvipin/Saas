@@ -1,7 +1,7 @@
 import Profile from "@/components/App/Profile/Profile";
 
 
-const page =({params}:{params:{username:string}})=>{
+const page =({params}:any)=>{
 
     const user = params.username
 

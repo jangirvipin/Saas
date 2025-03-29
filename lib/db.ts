@@ -1,19 +1,13 @@
-// lib/prisma.ts
 import { PrismaClient } from '@prisma/client';
 
-declare global {
-    // This prevents TypeScript from throwing errors on the global object
-    // due to multiple instances of PrismaClient in development
-    var prisma: PrismaClient | undefined;
-}
 
-const prisma = global.prisma || new PrismaClient({
-    log: ['query'], // optional, helps in debugging by logging queries in development
-});
+const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
-// Ensure we use the singleton instance in development, which is important in Next.js due to hot reloading
+const prisma = globalForPrisma.prisma ?? new PrismaClient();
+
+// Prevent multiple Prisma instances in development mode (Next.js hot reload)
 if (process.env.NODE_ENV !== 'production') {
-    global.prisma = prisma;
+    globalForPrisma.prisma = prisma;
 }
 
 export default prisma;

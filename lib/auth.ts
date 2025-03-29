@@ -17,13 +17,13 @@ interface ExtendedToken extends JWT {
     name?: string;
 }
 
-interface GithubProfile {
-    id: number;
-    login: string;
-    name?: string;
-    email?: string;
-    avatar_url?: string;
-}
+// interface GithubProfile {
+//     id: number;
+//     login: string;
+//     name?: string;
+//     email?: string;
+//     avatar_url?: string;
+// }
 
 
 export const authOptions: NextAuthOptions = {
@@ -51,7 +51,7 @@ export const authOptions: NextAuthOptions = {
     },
 
     callbacks: {
-        async signIn({ user, account, profile }) {
+        async signIn({ profile }) {
             const githubProfile = profile as ExtendedProfile;
             if (!githubProfile || !githubProfile.login) {
                 return false;
@@ -100,8 +100,8 @@ export const authOptions: NextAuthOptions = {
             }
             return session;
         },
-        async redirect({ url, baseUrl }) {
-            return "/open";
+        async redirect() {
+            return "/";
         }
     },
 };

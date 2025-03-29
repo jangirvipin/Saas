@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import Contribution from "@/components/App/Contributions/ui/Contribution";
 import axios from "axios";
 import {useRouter} from "next/navigation";
+import {toast} from "sonner";
 
 export default function NewContribution(){
     const router = useRouter();
@@ -21,13 +22,21 @@ export default function NewContribution(){
     });
 
     const handleSubmit =async ()=>{
-        const res =await axios.post(`http://localhost:3000/api/contribution/new`, editedContribution);
-        console.log(res);
-        if(res.status===200){
-            router.push(`/contributions`);
+        try {
+            const res = await axios.post(`http://localhost:3000/api/contribution/new`, editedContribution);
+            console.log(res);
+            if (res.status === 200) {
+                toast.success("Contribution successfully created");
+                setTimeout(() => {
+                    router.push(`/user/contributions`);
+                })
+            } else {
+                toast.error("Failed to create contribution");
+            }
         }
-        else {
-            alert("noob")
+        catch (e){
+            console.log(e);
+            toast.error("Fill all the details");
         }
     }
 

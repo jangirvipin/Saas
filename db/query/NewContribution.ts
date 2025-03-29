@@ -1,3 +1,4 @@
+import prisma from "@/lib/db";
 const newContribution=async(username:any,data:any,createdAt:any)=>{
     prisma?.$connect();
     const userid= await prisma?.user.findUnique({

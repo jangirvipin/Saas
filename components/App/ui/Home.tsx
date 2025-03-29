@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import Link from "next/link";
 import { GitHubLogoIcon, CodeIcon } from "@radix-ui/react-icons";
+import {toast} from "sonner";
 
 export default function HeroSection() {
     const [username, setUsername] = useState("");
@@ -15,6 +16,8 @@ export default function HeroSection() {
     const handleSubmit = () => {
         if (username.trim()) {
             router.push(`/profile/${username}`);
+        }else {
+            toast.error("Please enter a valid username");
         }
     };
 
@@ -40,7 +43,7 @@ export default function HeroSection() {
                             <Button
                                 size="lg"
                                 variant="default"
-                                className="bg-zinc-800 text-white hover:bg-zinc-700 border border-zinc-700"
+                                className="bg-zinc-800 cursor-pointer text-white hover:bg-zinc-700 border border-zinc-700"
                             >
                                 <GitHubLogoIcon className="mr-2 h-5 w-5" />
                                 GitHub Profile
@@ -64,7 +67,7 @@ export default function HeroSection() {
                                 <Button
                                     size="lg"
                                     variant="default"
-                                    className="bg-zinc-800 text-white hover:bg-zinc-700 border border-zinc-700"
+                                    className="bg-zinc-800 text-white cursor-pointer hover:bg-zinc-700 border border-zinc-700"
                                     onClick={handleSubmit}
                                 >
                                     Go to Profile
@@ -74,11 +77,11 @@ export default function HeroSection() {
                     </Dialog>
 
                     {/* Open Source Works */}
-                    <Link href="/contributions">
+                    <Link href="/user/contributions">
                         <Button
                             size="lg"
                             variant="outline"
-                            className="text-white border-zinc-700 bg-zinc-800 hover:bg-zinc-800 hover:text-white"
+                            className="text-white cursor-pointer border-zinc-700 bg-zinc-800 hover:bg-zinc-800 hover:text-white"
                         >
                             <CodeIcon className="mr-2 h-5 w-5" />
                             Open Source Works

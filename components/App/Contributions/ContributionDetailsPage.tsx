@@ -15,10 +15,10 @@ import {
     Target,
     ExternalLink,
     Quote,
-    Pencil
 } from "lucide-react";
 import getStatusData from "@/utils/Status";
 import EditContributionButton from "@/components/App/ui/Edit";
+import DeleteContributionButton from "@/components/App/ui/delete";
 
 const ContributionDetails = ({ contribution }:any) => {
 
@@ -140,8 +140,9 @@ const ContributionDetails = ({ contribution }:any) => {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-6">
+            <div className="flex justify-center mt-8 gap-x-4">
                 <EditContributionButton id={contribution.id} />
+                <DeleteContributionButton id={contribution.id} />
             </div>
 
         </div>
