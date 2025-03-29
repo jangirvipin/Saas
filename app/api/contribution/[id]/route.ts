@@ -34,7 +34,7 @@ export async function PUT(
     }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: any) {
     try {
         const id = params.id;
         const result = await DeleteContribution(id);

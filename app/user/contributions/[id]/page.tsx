@@ -2,7 +2,7 @@ import { Contribution } from "@prisma/client";
 import contributionData from "@/db/query/contribution";
 import ContributionDetailsPage from "@/components/App/Contributions/ContributionDetailsPage";
 
-const page =async ({params}:{params:{id:string}})=>{
+const page =async ({params}:any)=>{
     const id:string = params.id;
     const contribution:Contribution | null  = await contributionData(id);
 
