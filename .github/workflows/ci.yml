@@ -1,0 +1,34 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Run Build
+        run: npm run build
+
+      - name: Start the nextjs server
+        run: npm run start &
+
+      - name: Wait for the server to start
+        run: sleep 10
+
+      - name: Check if server is running
+        run: curl -f http://localhost:3000 || exit 1

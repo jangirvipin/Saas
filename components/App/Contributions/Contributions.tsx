@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Input } from "@/components/ui/input";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import Contributions_card from "@/components/App/Contributions/Contributions_card";
 
@@ -41,6 +40,7 @@ export default function ContributionsPage({data}:{data:any}) {
 
     return (
         <div className="max-w-6xl mx-auto p-6">
+
             {/* Search & Filter Inputs */}
             <div className="flex flex-wrap gap-4 mb-6 justify-center">
 
@@ -65,6 +65,11 @@ export default function ContributionsPage({data}:{data:any}) {
                         <SelectItem value="HARD">Hard</SelectItem>
                     </SelectContent>
                 </Select>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold cursor-pointer py-2 px-4 rounded-lg shadow-md transition-all"
+                onClick={()=>router.push("/user/dashboard")}
+                >
+                    Dashboard
+                </button>
             </div>
 
             <div className="grid grid-cols-3 gap-x-4 gap-y-6 mt-8 ">

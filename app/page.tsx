@@ -1,8 +1,10 @@
-
+'use client'
 import HomePage from "@/components/App/ui/Home";
 import How_it_works from "@/components/App/ui/How_it_works";
+import {useRouter} from "next/navigation";
 
 export default function Home(){
+    const router = useRouter();
   return (
       <>
        <HomePage />
@@ -14,7 +16,7 @@ export default function Home(){
               <p className="text-zinc-300 mt-4 max-w-3xl mx-auto text-lg">
                   Sign up today and take your developer profile to the next level.
               </p>
-              <button className="mt-8 px-8 py-3 bg-zinc-800 text-white rounded-lg hover:bg-zinc-700 border border-zinc-700">
+              <button onClick={()=>{router.push('/signin')}}  className="mt-8 px-8 py-3 bg-zinc-800 cursor-pointer text-white rounded-lg hover:bg-zinc-700 border border-zinc-700">
                   Sign Up for Free
               </button>
           </section>

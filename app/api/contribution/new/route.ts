@@ -12,9 +12,9 @@ export async function POST(
 
         const session: any = await getServerSession(authOptions);
         const username: string = session?.user?.username?.toString();
-        console.log("i am here ")
+
         const updatedContribution = await newContribution( username, data,createdAt)
-        console.log(updatedContribution)
+
         return NextResponse.json(updatedContribution, { status: 200 })
     } catch (error) {
         console.error('Update Contribution Error:', error)

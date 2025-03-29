@@ -72,11 +72,11 @@ export default function Dashboard({data}:{data:any}) {
                             </div>
 
                             <div className="flex flex-col md:flex-row gap-3 md:items-end">
-                                  <Button onClick={()=>router.push("/contributions")} className="button bg-green-400/80   text-zinc-100">
+                                  <Button onClick={()=>router.push("/user/contributions")} className="button bg-green-400/80   text-zinc-100">
                                       <ArrowUpWideNarrow size={16} className="mr-2" />
                                         See All
                                     </Button>
-                                <Button onClick={()=>router.push("/contributions/new")} className="bg-blue-600 hover:bg-blue-700 text-white">
+                                <Button onClick={()=>router.push("/user/contributions/new")} className="bg-blue-600 hover:bg-blue-700 text-white">
                                     <GlobeIcon size={16} className="mr-2" />
                                     Add New
                                 </Button>

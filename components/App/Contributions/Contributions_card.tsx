@@ -163,7 +163,7 @@ export default function Contributions_card({contribution}:{contribution:any}) {
                                     size="icon"
                                     className="h-8 w-8 rounded-full bg-zinc-700 hover:bg-zinc-600 text-zinc-200"
                                 >
-                                    <a href={`/contributions/${id}`}><ArrowUpRight size={14} /></a>
+                                    <a href={`/user/contributions/${id}`}><ArrowUpRight size={14} /></a>
                                 </Button>
                             </TooltipTrigger>
                             <TooltipContent side="bottom">

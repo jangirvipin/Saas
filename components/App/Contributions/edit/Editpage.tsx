@@ -2,7 +2,7 @@
 import {useRouter} from "next/navigation";
 import axios from "axios";
 import React, { useState } from 'react';
-
+import { toast } from "sonner";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import Contribution from "@/components/App/Contributions/ui/Contribution";
 
@@ -35,7 +35,12 @@ const EditPage = ({ contribution }:{contribution:any}) => {
     const handleSubmit =async () => {
         const res =await axios.put(`http://localhost:3000/api/contribution/${id}`, editedContribution);
         if(res.status===200){
-          router.push(`/contributions/${id}`);
+            toast.success("Contribution successfully updated");
+            setTimeout(() => {
+                router.push(`/user/contributions/${id}`);
+            },1000)
+        }else{
+            toast.error("Failed to update contribution");
         }
     };
 
