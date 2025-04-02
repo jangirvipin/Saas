@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import Basic from "@/components/App/Github/basic";
 import GitHubCalendar from "@/components/App/Github/Calendar";
 import ContributionStats from "@/components/App/Github/Stats";
@@ -18,14 +17,14 @@ export default async function Profile({ username }: { username: string }) {
 
     if (error || !contributions.length) {
         return (
-            <div className='text-white max-w-4xl mx-auto'>
+            <div className="text-white max-w-4xl mx-auto">
                 <NoGitHubProfile username={username} />
             </div>
         );
     }
 
     return (
-        <div className='text-white max-w-4xl mx-auto'>
+        <div className="text-white max-w-4xl mx-auto">
             <Basic username={username} />
             <GitHubCalendar username={username} />
             <ContributionStats data={contributions} username={username} />
@@ -45,13 +44,13 @@ function NoGitHubProfile({ username }: { username: string }) {
                 </CardHeader>
                 <CardContent className="text-center text-sm text-muted-foreground">
                     <p className="mb-4">
-                        We couldn't find any contributions for the GitHub username: <span className="font-bold">{username}</span>
+                        We couldn&apos;t find any contributions for the GitHub username: <span className="font-bold">{username}</span>
                     </p>
                     <p>
                         This could be because:
                     </p>
                     <ul className="list-disc list-inside text-left mt-2 space-y-1">
-                        <li>The username doesn't exist on GitHub</li>
+                        <li>The username  doesn&apos; exist on GitHub</li>
                         <li>The profile exists but has no public contributions</li>
                         <li>There might be an issue with our GitHub API connection</li>
                     </ul>

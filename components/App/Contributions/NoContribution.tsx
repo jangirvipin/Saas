@@ -16,7 +16,7 @@ const NoContributionsFound = () => {
                     </div>
                     <CardTitle className="text-2xl text-zinc-100">No contributions found</CardTitle>
                     <CardDescription>
-                        You haven't shared any open source contributions yet.
+                        You haven&apos;t shared any open source contributions yet.
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="text-center text-sm text-muted-foreground">
