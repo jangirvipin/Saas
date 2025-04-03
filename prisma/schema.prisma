@@ -13,6 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator seed {
+  provider = "node"
+  run      = "npm run seed"
+}
+
 model User {
   id            String         @id @default(cuid())
   username      String         @unique
