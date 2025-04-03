@@ -1,0 +1,34 @@
+services:
+#  postgres:
+#    image: postgres:15-alpine
+#    container_name: gitspotlight_postgres
+#    restart: always
+#    environment:
+#      POSTGRES_USER: gitspotlight
+#      POSTGRES_PASSWORD: secret
+#      POSTGRES_DB: gitspotlight_db
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - pgdata:/var/lib/postgresql/data
+#    healthcheck:
+#      test: [ "CMD", "pg_isready", "-U", "gitspotlight" ]
+#      interval: 10s
+#      retries: 5
+#      start_period: 10s
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - "3000:3000"
+    volumes:
+      - .:/app:cached
+      - /app/node_modules
+#    depends_on:
+#      postgres:
+#        condition: service_healthy # Wait for PostgreSQL to be ready
+#
+#volumes:
+#  pgdata:
