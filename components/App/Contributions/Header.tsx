@@ -1,4 +1,3 @@
-
 import { Sparkles } from "lucide-react";
 
 export default function ContributionsHeader() {
@@ -14,4 +13,4 @@ export default function ContributionsHeader() {
             </p>
         </div>
     );
-}
+}   

@@ -2,11 +2,15 @@
 import HomePage from "@/components/App/ui/Home";
 import How_it_works from "@/components/App/ui/How_it_works";
 import {useRouter} from "next/navigation";
+import GithubIcon from "./githubIcon";
 
 export default function Home(){
     const router = useRouter();
   return (
       <>
+      <section className="flex flex-col items-center justify-center py-10 bg-black">
+      <GithubIcon/>
+      </section>
        <HomePage />
           <How_it_works />
           <section className="py-16 px-6 text-center bg-zinc-900">
