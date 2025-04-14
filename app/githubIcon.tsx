@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 const REPO_URL = "https://github.com/jangirvipin/Saas";
 const API_URL = "https://api.github.com/repos/jangirvipin/Saas";
 
-const GithubBadge: React.FC = () => {
+const GithubIcon: React.FC = () => {
   const [stars, setStars] = useState<number | null>(null);
 
   useEffect(() => {
@@ -41,4 +41,4 @@ const GithubBadge: React.FC = () => {
   );
 };
 
-export default GithubBadge;
+export default GithubIcon;

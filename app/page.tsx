@@ -2,14 +2,14 @@
 import HomePage from "@/components/App/ui/Home";
 import How_it_works from "@/components/App/ui/How_it_works";
 import {useRouter} from "next/navigation";
-import GithubBadge from "./GithubBadge";
+import GithubIcon from "./githubIcon";
 
 export default function Home(){
     const router = useRouter();
   return (
       <>
       <section className="flex flex-col items-center justify-center py-10 bg-black">
-      <GithubBadge/>
+      <GithubIcon/>
       </section>
        <HomePage />
           <How_it_works />
